@@ -1,0 +1,38 @@
+{
+	"extends": [
+		"eslint:recommended",
+		"marine/prettier/node",
+		"plugin:prettier/recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"project": "./tsconfig.json"
+	},
+	"plugins": [
+		"prettier",
+		"simple-import-sort",
+		"@typescript-eslint"
+	],
+	"ignorePatterns": [
+		"**/dist/*",
+		"node_modules/**/*",
+		"*.js",
+		"bin/*"
+	],
+	"rules": {
+		"no-duplicate-imports": "off",
+		"@typescript-eslint/no-dynamic-delete": "off",
+		"@typescript-eslint/no-non-null-assertion": "off",
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-misused-promises": ["error", { "checksVoidReturn": false, "checkConditionals": true }],
+		"@typescript-eslint/member-ordering": "error",
+		"prettier/prettier": "error",
+		"lines-between-class-members": "error",
+		"radix": "off",
+		"simple-import-sort/imports": "error",
+		"simple-import-sort/exports": "error",
+		"sort-keys": "error",
+        "sort-vars": "error"
+	}
+}

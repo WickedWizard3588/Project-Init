@@ -1,0 +1,5 @@
+# Run Time
+node_modules/
+
+# Typescript
+dist/

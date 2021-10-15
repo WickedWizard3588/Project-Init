@@ -1,0 +1,49 @@
+{
+	"name": "project-init",
+	"version": "1.5.1",
+	"description": "A CLI to init my new projects",
+	"main": "dist/src/",
+	"bin": "bin/index",
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"link": "npm run build && npm link",
+		"lint": "eslint .",
+		"lint:fix": "eslint --fix .",
+		"build": "rimraf dist && tsc",
+		"prepare": "husky install"
+	},
+	"keywords": [
+		"cli",
+		"project-init",
+		"create-project"
+	],
+	"author": "Chiranthan Bharadwaj R (chiranthan568@gmail.com)",
+	"license": "MIT",
+	"dependencies": {
+		"axios": "^0.21.4",
+		"fs-extra": "^10.0.0",
+		"inquirer": "^8.1.5",
+		"ts-command-line-args": "^2.1.0"
+	},
+	"devDependencies": {
+		"@commitlint/config-angular": "^13.1.0",
+		"@types/fs-extra": "^9.0.13",
+		"@types/inquirer": "^8.1.3",
+		"@types/node": "^16.4.12",
+		"@typescript-eslint/eslint-plugin": "^4.29.0",
+		"@typescript-eslint/parser": "^4.29.0",
+		"commitlint": "^13.1.0",
+		"eslint": "^7.32.0",
+		"eslint-config-marine": "^9.0.6",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-import": "^2.23.4",
+		"eslint-plugin-prettier": "^3.4.0",
+		"eslint-plugin-simple-import-sort": "^7.0.0",
+		"husky": "^7.0.1",
+		"prettier": "^2.3.2",
+		"rimraf": "^3.0.2",
+		"typescript": "^4.3.5"
+	}
+}
