@@ -18,7 +18,8 @@
 		"**/dist/*",
 		"node_modules/**/*",
 		"*.js",
-		"bin/*"
+		"bin/*",
+		"templates/*"
 	],
 	"rules": {
 		"no-duplicate-imports": "off",
