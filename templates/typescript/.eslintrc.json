@@ -1,3 +1,4 @@
+
 {
 	"extends": [
 		"eslint:recommended",
@@ -17,8 +18,7 @@
 	"ignorePatterns": [
 		"**/dist/*",
 		"node_modules/**/*",
-		"*.js",
-		"bin/*"
+		"test/**/*.js"
 	],
 	"rules": {
 		"no-duplicate-imports": "off",
@@ -33,6 +33,7 @@
 		"simple-import-sort/imports": "error",
 		"simple-import-sort/exports": "error",
 		"sort-keys": "error",
-        "sort-vars": "error"
+        "sort-vars": "error",
+		"import/order": "off"
 	}
 }

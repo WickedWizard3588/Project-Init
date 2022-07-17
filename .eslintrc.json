@@ -1,3 +1,4 @@
+
 {
 	"extends": [
 		"eslint:recommended",
@@ -15,11 +16,11 @@
 		"@typescript-eslint"
 	],
 	"ignorePatterns": [
-		"**/dist/*",
+		"dist/*",
 		"node_modules/**/*",
-		"*.js",
+		"test/**/*.js",
 		"bin/*",
-		"templates/*"
+		"templates/**/*"
 	],
 	"rules": {
 		"no-duplicate-imports": "off",
@@ -34,6 +35,7 @@
 		"simple-import-sort/imports": "error",
 		"simple-import-sort/exports": "error",
 		"sort-keys": "error",
-        "sort-vars": "error"
+        "sort-vars": "error",
+		"import/order": "off"
 	}
 }

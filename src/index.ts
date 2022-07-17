@@ -2,6 +2,7 @@ import { exec } from 'child_process';
 import { mkdir, writeFile } from 'fs/promises';
 import { copy } from 'fs-extra';
 import { prompt, QuestionCollection, Separator } from 'inquirer';
+import ncu from 'npm-check-updates';
 import { join } from 'path';
 
 import { getLicense, getLicenses, writeLicense } from './licenses';
@@ -43,16 +44,17 @@ export default async function start(options: Options): Promise<void> {
 	await mkdir(targetDir);
 	await copy(templateDir, targetDir);
 
-	/* eslint-disable-next-line */
-	const packageJSON = require(join(targetDir, './package.json'));
+	const packageJSON = (await import(join(targetDir, './package.json'))) as { [key: string]: unknown };
 	packageJSON.name = options.name.split(' ').join('-').toLowerCase();
 	packageJSON.description = options.description;
 	packageJSON.license = options.license;
-	await writeFile(join(targetDir, './package.json'), JSON.stringify(packageJSON));
 
+	await writeFile(join(targetDir, './package.json'), JSON.stringify(packageJSON));
 	await writeLicense(targetDir, options.license, await getLicense(options.license));
 
-	exec(`cd ./${options.name} && npm install && code .`);
+	await ncu({ cwd: join(targetDir, './package.json'), target: 'latest', upgrade: true });
+
+	exec(`cd ./${targetDir} && npm install && ${process.env.EDITOR ?? 'code'} .`);
 	console.log('Successfully Initialized your Project');
 }
 
