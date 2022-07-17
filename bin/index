@@ -9,20 +9,17 @@ const args = parse(
 			alias: 'h',
 			description: 'Prints this usage guide',
 			type: Boolean,
-			optional: true,
 		},
 		name: {
 			alias: 'n',
 			description: 'Name of the Project',
 			type: String,
-			optional: true,
 			defaultValue: ':P'
 		},
 		description: {
 			alias: 'd',
 			description: 'Description of your Project',
 			type: String,
-			optional: true,
 			defaultValue: ':P',
 		},
 	},
